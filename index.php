@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use Ifba\Core\Router;
+
 require_once "./vendor/autoload.php";
 require_once "./app/config.php";
 
@@ -8,15 +10,10 @@ require_once "./app/config.php";
 $url = $_GET['url'] ?? '/';
 
 
-switch($url){
-    case '/':
-        $ctr = new Ifba\Controller\HomeController();
-        $ctr->index();
-    break;
-    default:
-         $ctr = new Ifba\Controller\ErroController();
-         $ctr->erro404();
-}
+Router::add('/','HomeController','index');
+Router::add('__erro','ErroController','erro404');
+
+Router::execute($url);
 
 
 
