@@ -2,10 +2,12 @@
 
 namespace Ifba\Controller;
 
-class ErroController{
+use Ifba\Core\Controller;
+
+class ErroController extends Controller{
 
     public function erro404(){
-        echo "Página Não Encontrada";
+        $this->view('404');        
     }
 
 }

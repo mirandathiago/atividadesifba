@@ -2,10 +2,15 @@
 
 namespace Ifba\Controller;
 
-class HomeController{
+use Ifba\Core\Controller;
+
+
+class HomeController extends Controller{
 
     public function index(){
-        require "./app/View/inicial.view.php";
+        $titulo = "Ifba Atividades";
+        $dados = compact('titulo');
+        $this->view('inicial',$dados);
     }
 
 
